@@ -1,0 +1,81 @@
+{%extends 'base.html'%}
+
+{%block body_content%}
+  {%if messages %}
+  {%for message in messages%}
+    <div class="alert alert-warning alert-dismissable" role="alert">
+      <button class="close" data-dismiss='alert'>
+            <small class="fa fa-close"></small>
+      </button>
+      {{message}}
+    </div>
+    {%endfor%}
+    {%endif%}
+{%endblock%}
+
+<!-- ********************************************************************************* -->
+
+{%block incomp_block%}
+
+<h1 style='color:red;'>Pending Task</h1>
+{%if incomp%}
+  <table class="table table-bordered" style="text-align:center;">
+    <thead>
+      <th>Task Description</th>
+      <th>Status</th>
+      <th>Options</th>
+    </thead>
+    {% for things in incomp%}
+            <tr>
+                  <td><a href="{%url 'edit' things.id %}">{{things.task}}</a></td>
+                  <td><center><a href="{%url 'complete' things.id %}">Completed</a></center></td>
+                  <td><center><a href="{% url 'delete' things.id %}"><button class="btn fa fa-trash">&nbsp Trash</button></a></center></td>
+            </tr>
+  {% endfor%}
+  </table>
+  {%else%}
+  <p>No Task Pending</p>
+{%endif%}
+
+{%endblock%}
+
+
+<!-- ********************************************************************************* -->
+
+{%block comp_block%}
+
+<h1 style='color:green;'>Completed Task</h1>
+{%if comp%}
+  <table class="table table-bordered" style="text-align:center;">
+    <thead>
+      <th>Task Description</th>
+      <th>Status</th>
+      <th>Options</th>
+    </thead>
+    {% for things in comp%}
+            <tr>
+                  <td><a href="{%url 'edit' things.id %}">{{things.task}}</a></td>
+                  <td><center><a href="{%url 'incomplete' things.id %}">Completed</a></center></td>
+                  <td><center><a href="{% url 'delete' things.id %}"><button class="btn fa fa-trash">&nbsp Trash</button></a></center></td>
+            </tr>
+  {% endfor%}
+  </table>
+  {%else%}
+  <p>No Task Completed!</p>
+{%endif%}
+
+{%endblock%}
+
+{%block footer_block%}
+<!-- Footer -->
+<footer class="page-footer font-small blue fixed-bottom">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://github.com/jayveerkher"> Jayveer Kher</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+{%endblock%}
