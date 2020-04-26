@@ -11,7 +11,7 @@ body {
 
 /* Header/Blog Title */
 .header {
-  padding: 30px;
+  padding: 5px;
   font-size: 40px;
   text-align: center;
   background: white;
@@ -66,4 +66,92 @@ body {
     width: 100%;
     padding: 0;
   }
+}
+
+.bottom_line{
+  border-bottom:2px solid black;
+  padding-bottom:10px;
+}
+
+.bottom_line_post{
+  border-bottom:2px solid black;
+}
+#id_name,#id_email,#id_to,#id_comment,#id_body{
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+input[type=submit]{
+width: 100%;
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 20px;
+}
+
+input[type=submit]:hover{
+background-color: #45a049;
+}
+
+.btn{
+width: 100%;
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 20px;
+text-decoration: none;
+}
+#see_more{
+cursor: pointer;
+font-size: 20px;
+text-decoration: none;
+}
+.btn:hover{
+background-color: #45a049;
+}
+
+a{
+text-decoration: none;
+color: black;
+}
+a:hover{
+/* text-decoration: underline; */
+color: purple;
+}
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+border: 1px solid #e7e7e7;
+background-color: #333;
+}
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+li a:hover:not(.active) {
+background-color: #ddd;
 }
