@@ -1,0 +1,215 @@
+{%load static%}
+{%load blog_tags%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+    <title>{%block title_block%}{%endblock%}</title>
+    <style media="screen">
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Add a gray background color with some padding */
+    body {
+      font-family: Arial;
+      padding: 20px;
+      background: #f1f1f1;
+    }
+
+    /* Header/Blog Title */
+    .header {
+      padding: 5px;
+      font-size: 40px;
+      text-align: center;
+      background: white;
+    }
+
+    /* Create two unequal columns that floats next to each other */
+    /* Left column */
+    .leftcolumn {
+      float: left;
+      width: 75%;
+    }
+
+    /* Right column */
+    .rightcolumn {
+      float: left;
+      width: 25%;
+      padding-left: 20px;
+    }
+
+    /* Fake image */
+    .fakeimg {
+      background-color: #aaa;
+      width: 100%;
+      padding: 20px;
+    }
+
+    /* Add a card effect for articles */
+    .card {
+       background-color: white;
+       padding: 20px;
+       margin-top: 20px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: #ddd;
+      margin-top: 20px;
+    }
+
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 800px) {
+      .leftcolumn, .rightcolumn {
+        width: 100%;
+        padding: 0;
+      }
+    }
+
+    .bottom_line{
+      border-bottom:2px solid black;
+      padding-bottom:10px;
+    }
+
+    .bottom_line_post{
+      border-bottom:2px solid black;
+    }
+  #id_name,#id_email,#id_to,#id_comment,#id_body{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit]{
+width: 100%;
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 20px;
+}
+
+input[type=submit]:hover{
+background-color: #45a049;
+}
+
+.btn{
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  text-decoration: none;
+}
+#see_more{
+  cursor: pointer;
+  font-size: 20px;
+  text-decoration: none;
+}
+.btn:hover{
+  background-color: #45a049;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  /* text-decoration: underline; */
+  color: purple;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+</style>
+  </head>
+  <body>
+
+  <div class="header">
+    <h2>Jayveer Kher's Personal Blog</h2>
+  </div>
+<div class="row">
+  <div>
+    <ul>
+      <li><a href="{%url 'post_list'%}">Home</a></li>
+      <li><a href="{%url 'post_list_by_tag_name' 'python' %}">Python</a></li>
+    </ul>
+  </div>
+</div>
+  <div class="row">
+    {%block body_block%}{%endblock%}
+    <div class="rightcolumn">
+      <div class="card">
+        <h2 class="bottom_line">About Me</h2>
+        <!-- <div class="fakeimg" style="height:100px;">Image</div> -->
+        <h2>Jayveer Kher</h2>
+        <h3>Asst. Professor</h3>
+        <h3>Parul University</h3>
+      </div>
+      <div class="card">
+        <h3>Total Posts : {%total_posts%}</h3>
+      </div>
+      <div class="card">
+        <h3 class="bottom_line">Latest Posts</h3>
+        {%show_latest_posts 3%}
+      </div>
+
+      <div class="card">
+        <h3 class="bottom_line">Most Commented Posts</h3>
+        {%get_most_commented_posts%}
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="footer">
+    <h2>Jayveer Kher &copy 2020</h2>
+  </div>
+
+  </body>

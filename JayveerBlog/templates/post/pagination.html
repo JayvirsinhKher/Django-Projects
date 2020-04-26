@@ -1,0 +1,12 @@
+<div class="card" style=' padding: 5px;padding-right: 20px;margin-top: 20px;'>
+  <h2 align='center'>
+    {%if page.has_previous%}
+      <a href="?page={{page.previous_page_number}}" class="btn" align='left'>Previous</a>
+    {%endif%}
+      <span style='padding:10px;' align='center'>Page {{page.number}} of {{page.paginator.num_pages}}</span>
+    {%if page.has_next%}
+      <a href="?page={{page.next_page_number}}" class="btn" align='right'>Next</a>
+    {%endif%}
+  </h2>
+    <!-- <a href="?page={{page.paginator.num_pages}}">Last</a> -->
+</div>
